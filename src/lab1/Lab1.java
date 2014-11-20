@@ -20,7 +20,7 @@ public class Lab1 {
         {
             int lineCount = 1;
             List<String> record = new ArrayList<>();
-            String inputLine = inReader.readLine();
+            String inputLine = inReader.readLine().trim();
             while(inputLine != null)
             {
                 record.add(inputLine);
@@ -60,7 +60,6 @@ public class Lab1 {
         String fName = lineOne[0];
         String lName = lineOne[1];
         String address = record.get(1);
-        address = address.trim(); //Clears trailing and leading spaces if there are any
         String[] lineThree = record.get(2).split(",");
         String city = lineThree[0]; //Remove commas from city
         String[] stateZipArray = lineThree[1].split(" ");

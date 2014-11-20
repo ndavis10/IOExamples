@@ -52,21 +52,24 @@ public class Lab1 {
         }
     }
     
+    //This is a really lazy but useful subroutine, not good for actual serious stuff, though
     private static void outputRecord(List<String[]> record)
     {
+        //Lazy hardcoding of values here
         String fName = record.get(0)[0];
         String lName = record.get(0)[1];
         String address = "";
+        //Lazy string concatenation
         for(String s : record.get(1))
         {
             address += s + " ";
         }
-        address = address.trim();
-        String city = record.get(2)[0].replaceAll(",", "");
+        address = address.trim(); //Clears trailing and leading spaces if there are any
+        String city = record.get(2)[0].replaceAll(",", ""); //Remove commas from city
         String state = record.get(2)[1];
         String zip = record.get(2)[2];
-        System.out.println("First Name: " + fName + "\n" +
-                "Last Name: " + lName + "\n" +
+        System.out.println("First Name: " + fName + "\n" + //Screw multiple printlns,
+                "Last Name: " + lName + "\n" +             //that's what '\n' is for
                 "Address: " + address + "\n" +
                 "City: " + city + "\n" +
                 "State: " + state + "\n" +

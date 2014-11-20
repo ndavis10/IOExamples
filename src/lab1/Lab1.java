@@ -19,11 +19,11 @@ public class Lab1 {
         try
         {
             int lineCount = 1;
-            List<String[]> record = new ArrayList<>();
+            List<String> record = new ArrayList<>();
             String inputLine = inReader.readLine();
             while(inputLine != null)
             {
-                record.add(inputLine.split(" "));
+                record.add(inputLine);
                 if(lineCount >= 3)
                 {
                     outputRecord(record);
@@ -53,21 +53,19 @@ public class Lab1 {
     }
     
     //This is a really lazy but useful subroutine, not good for actual serious stuff, though
-    private static void outputRecord(List<String[]> record)
+    private static void outputRecord(List<String> record)
     {
         //Lazy hardcoding of values here
-        String fName = record.get(0)[0];
-        String lName = record.get(0)[1];
-        String address = "";
-        //Lazy string concatenation
-        for(String s : record.get(1))
-        {
-            address += s + " ";
-        }
+        String[] lineOne = record.get(0).split(" ");
+        String fName = lineOne[0];
+        String lName = lineOne[1];
+        String address = record.get(1);
         address = address.trim(); //Clears trailing and leading spaces if there are any
-        String city = record.get(2)[0].replaceAll(",", ""); //Remove commas from city
-        String state = record.get(2)[1];
-        String zip = record.get(2)[2];
+        String[] lineThree = record.get(2).split(",");
+        String city = lineThree[0]; //Remove commas from city
+        String[] stateZipArray = lineThree[1].split(" ");
+        String state = stateZipArray[0];
+        String zip = stateZipArray[1];
         System.out.println("First Name: " + fName + "\n" + //Screw multiple printlns,
                 "Last Name: " + lName + "\n" +             //that's what '\n' is for
                 "Address: " + address + "\n" +
